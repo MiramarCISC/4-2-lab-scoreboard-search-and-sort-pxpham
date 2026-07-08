@@ -7,28 +7,48 @@ int calculateTotal(const int scores[], int size) {
     // TODO:
     // If the array is null or the size is invalid, return 0.
     // Otherwise, return the sum of all scores.
-    return 0;
+    if ((scores == NULL) || (size <= 0)) return 0;
+    int sum = 0;
+    for (int i =0; i < size; i++){
+        sum += scores[i];
+    }
+    return sum;
 }
 
 double calculateAverage(const int scores[], int size) {
     // TODO:
     // If the array is null or the size is invalid, return 0.0.
     // Otherwise, return the total divided by size.
-    return 0.0;
+    if ((scores == NULL) || (size <= 0)) return 0;
+    int sum = 0;
+    for (int i =0; i < size; i++){
+        sum += scores[i];
+    }
+    return (double)sum/size;
 }
 
 int findLowest(const int scores[], int size) {
     // TODO:
     // If the array is null or the size is invalid, return 0.
     // Otherwise, return the smallest score.
-    return 0;
+    if ((scores == NULL) || (size <= 0)) return 0;
+    int smallest = scores[0];
+    for (int i =1; i < size; i++){
+        if (scores[i] < smallest){smallest = scores[i];}
+    }
+    return smallest;
 }
 
 int findHighest(const int scores[], int size) {
     // TODO:
     // If the array is null or the size is invalid, return 0.
     // Otherwise, return the largest score.
-    return 0;
+    if ((scores == NULL) || (size <= 0)) return 0;
+    int largest = scores[0];
+    for (int i =1; i < size; i++){
+        if (scores[i] > largest){largest = scores[i];}
+    }
+    return largest;
 }
 
 int findScore(const int scores[], int size, int target) {
@@ -36,6 +56,9 @@ int findScore(const int scores[], int size, int target) {
     // Search the array from left to right.
     // Return the index where target is found.
     // Return -1 when target is not found.
+    for (int i =0; i < size; i++){
+        if (scores[i] == target){return i;}
+    }
     return -1;
 }
 
@@ -43,6 +66,13 @@ void sortScores(int scores[], int size) {
     // TODO:
     // Sort the array from lowest to highest.
     // A selection sort works well for this lab.
+    for (int i = 0; i < size; i++){
+        int min_index = i;
+        for (int j = i+1; j < size; j++){
+            if (scores[min_index] > scores[j]) min_index = j;
+        }
+        swap(scores[i], scores[min_index]);
+    }
 }
 
 void printScores(const int scores[], int size) {
@@ -64,5 +94,5 @@ void printScores(const int scores[], int size) {
 
 bool isValidSize(int size) {
     // TODO: Return true when size is greater than 0.
-    return false;
+    return size > 0;
 }
