@@ -34,7 +34,9 @@ int findLowest(const int scores[], int size) {
     if ((scores == nullptr) || (size <= 0)) return 0;
     int smallest = scores[0];
     for (int i =1; i < size; i++){
-        if (scores[i] < smallest){smallest = scores[i];}
+        if (scores[i] < smallest){
+            smallest = scores[i];
+        }
     }
     return smallest;
 }
