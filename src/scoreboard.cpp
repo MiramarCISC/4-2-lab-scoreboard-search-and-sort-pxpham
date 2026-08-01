@@ -56,10 +56,10 @@ int findScore(const int scores[], int size, int target) {
     // Search the array from left to right.
     // Return the index where target is found.
     // Return -1 when target is not found.
+    if (scores == nullptr || !isValidSize(size)) return -1;
     for (int i =0; i < size; i++){
         if (scores[i] == target){return i;}
     }
-    return -1;
 }
 
 void sortScores(int scores[], int size) {
