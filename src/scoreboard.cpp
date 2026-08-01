@@ -60,17 +60,21 @@ int findScore(const int scores[], int size, int target) {
     for (int i =0; i < size; i++){
         if (scores[i] == target){return i;}
     }
+    return -1;
 }
 
 void sortScores(int scores[], int size) {
     // TODO:
     // Sort the array from lowest to highest.
     // A selection sort works well for this lab.
-    for (int i = 0; i < size; i++){
+    void sortScores(int scores[], int size) {
+    if (scores == nullptr || !isValidSize(size))
+        return;
+    for (int i = 0; i < size - 1; i++) {
         int min_index = i;
-        for (int j = i+1; j < size; j++){
-            if (scores[min_index] > scores[j]) min_index = j;
-        }
+        for (int j = i + 1; j < size; j++) {
+            if (scores[j] < scores[min_index])
+                min_index = j;}
         swap(scores[i], scores[min_index]);
     }
 }
