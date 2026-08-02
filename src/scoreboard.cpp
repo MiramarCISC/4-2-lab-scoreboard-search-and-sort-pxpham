@@ -71,10 +71,10 @@ void sortScores(int scores[], int size) {
     // A selection sort works well for this lab.
     if (scores == nullptr || !isValidSize(size)) return;
     for (int i = 0; i < size - 1; i++) {
-        int min_index = i;
+        int minIndex = i;
         for (int j = i + 1; j < size; j++) {
-            if (scores[min_index] > scores[j]) {
-                min_index = j;
+            if (scores[minIndex] > scores[j]) {
+                minIndex = j;
             }
         }
         int temp = scores[start];
