@@ -77,7 +77,7 @@ void sortScores(int scores[], int size) {
                 minIndex = j;
             }
         }
-        swap(scores[i], scores[min_index]);
+        swap(scores[i], scores[minIndex]);
     }
 }
 
