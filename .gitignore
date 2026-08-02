@@ -1,5 +1,4 @@
 main
-test_scoreboard
 test_receipt
 build
 *.o
