@@ -8,7 +8,6 @@ int calculateTotal(const int scores[], int size) {
     // If the array is null or the size is invalid, return 0.
     // Otherwise, return the sum of all scores.
     if ((scores == nullptr) || (size <= 0)) return 0;
-
     int sum = 0;
     for (int i = 0; i < size; i++) {
         sum += scores[i];
@@ -21,11 +20,7 @@ double calculateAverage(const int scores[], int size) {
     // If the array is null or the size is invalid, return 0.0.
     // Otherwise, return the total divided by size.
     if ((scores == nullptr) || (size <= 0)) return 0.0;
-    int sum = 0;
-    for (int i = 0; i < size; i++) {
-        sum += scores[i];
-    }
-    return (double)sum / size;
+    return (double)calculateTotal(scores,size) / size;
 }
 
 int findLowest(const int scores[], int size) {
@@ -82,7 +77,9 @@ void sortScores(int scores[], int size) {
                 min_index = j;
             }
         }
-        swap(scores[i], scores[min_index]);
+        int temp = scores[start];
+        scores[start] = scores[minIndex];
+        scores[minIndex] = temp;
     }
 }
 
